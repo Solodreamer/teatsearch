@@ -5,6 +5,7 @@ import {SelectItem} from 'primeng/api';
 import { Observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-search-header',
   templateUrl: './search-header.component.html',
@@ -13,10 +14,10 @@ import { Observable } from 'rxjs';
 })
 export class SearchHeaderComponent implements OnInit {
 
-    // public users: SelectItem[] = new Array(); // ?
+    public users: SelectItem[] = new Array();
     // public stocksorts;
     // public matInventoryParam;
-    public users;
+
 
 
 
@@ -28,11 +29,14 @@ export class SearchHeaderComponent implements OnInit {
     // this.getUserDepartInfo();
 
   }
-  private getUsers() {
+  private getUsers(): void {
        this.datasvc.getUsers()
        .subscribe(
         data => {
-        this.users.departNo = data.label; },
+          data.forEach(item => {
+             this.users.push({label: `${item.departNo} - ${item.shortName}`, value: item.departNo});
+          });
+         },
         err => console.error(err),
         () => console.log('usercomplete')
        );
