@@ -13,9 +13,9 @@ export class DataService {
   constructor(private http: HttpClient) {
      }
 
-     public getUsers(): Observable<SelectItem> { // getUsers()為取得使用者責任中心
+     public getUsers(): Observable<Array<any>> { // getUsers()為取得使用者責任中心清單
       const url = 'http://test.his.cmuh.org.tw/WebApi/MatStockManager/MatStock/GetDepartmentInfos';
-      return this.http.get<SelectItem>(url);
+      return this.http.get<Array<any>>(url);
     }
 /*
     getStockSorts() { // getStocksorts()為取得庫存分類選項清單
