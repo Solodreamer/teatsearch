@@ -1,0 +1,39 @@
+庫別代碼:<p-dropdown [options]="users" placeholder="使用者責任中心" [style]="{'width':'150px'}"  filter="true">
+
+          <div *ngFor="let user of users" >
+            <span style="vertical-align:middle; margin-left: .5em">{{user.departNo}} - {{user.shortName}}</span>
+          </div>
+
+
+        </p-dropdown>
+
+
+
+
+
+
+
+
+
+        <!--<p-dropdown [options]="users" [style]="{'width':'150px'}" optionLabel="shortName" filter="true">
+          <div *ngFor="let user of users" >
+            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+              <span style="vertical-align:middle; margin-left: .5em">{{user.shortName}}</span>
+          </div>
+        </p-dropdown>
+
+
+
+庫存分類:<p-dropdown [options]="stocksorts" placeholder="全部" [style]="{'width':'150px'}"  optionLabel="value" >
+          <div *ngFor="let stocksort of stocksorts">
+              <span style="vertical-align:middle; margin-left: .5em">{{stocksort.value}}</span>
+          </div>
+        </p-dropdown>
+
+        <div style="position:relative">
+          衛材代碼:<input type="search" pInputText placeholder="Search" (keyup)="dv.filter($event.target.value)">
+        </div>-->
+
+
+
+
