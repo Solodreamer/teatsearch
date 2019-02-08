@@ -18,6 +18,8 @@ import { CodeHighlighterModule} from 'primeng/components/codehighlighter/codehig
 import { DataViewModule} from 'primeng/components/dataview/dataview';
 import { PanelModule} from 'primeng/components/panel/panel';
 import { DialogModule} from 'primeng/components/dialog/dialog';
+import {TableModule} from 'primeng/table';
+
 
 
 
@@ -41,7 +43,8 @@ import { DialogModule} from 'primeng/components/dialog/dialog';
     HttpClientModule,
     DataViewModule,
     PanelModule,
-    DialogModule
+    DialogModule,
+    TableModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
