@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 
 
+
 @Component({
   selector: 'app-search-header',
   templateUrl: './search-header.component.html',
@@ -14,18 +15,19 @@ import { Observable } from 'rxjs';
 })
 export class SearchHeaderComponent implements OnInit {
 
-    public users: SelectItem[] = new Array();
-    // public stocksorts;
-    // public matInventoryParam;
+  public users: SelectItem[] = new Array();
+  public stocksorts: SelectItem[] = new Array();
 
 
 
+  constructor(public datasvc: DataService) { }
 
-   constructor(public datasvc: DataService) { }
 
   ngOnInit() {
-    // this.getStockSorts();
-     this.getUsers();
+    this.getUsers();
+    this.getStockSorts();
+
+
     // this.getUserDepartInfo();
 
   }
@@ -41,6 +43,24 @@ export class SearchHeaderComponent implements OnInit {
         () => console.log('usercomplete')
        );
       }
+
+
+  private getStockSorts(): void {
+      this.datasvc.getStockSorts()
+      .subscribe(
+      data => {
+        data.forEach(item => {
+          this.stocksorts.push({label: item.value , value: item.code});
+
+        });
+       },
+      err => console.error(err),
+      () => console.log('stocksortcomplete')
+    );
+  }
+
+
+
 /*
   getStockSorts() {
        this.datasvc.getStockSorts()
