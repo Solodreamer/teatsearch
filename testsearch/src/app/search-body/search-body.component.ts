@@ -7,10 +7,21 @@ import { StockDataService } from './stock-data.service';
   styleUrls: ['./search-body.component.css']
 })
 export class SearchBodyComponent implements OnInit {
+  public stockdata;
 
   constructor(private stocksvc: StockDataService) { }
 
   ngOnInit() {
+    this.updateStockdata();
+  }
+
+  private updateStockdata(): void {
+    this.stocksvc.updateStockdata()
+    .subscribe(
+      data => this.stockdata = data,
+      err => console.error('stockdataerr'),
+      () => console.log('stockdata complete')
+    );
   }
 
 }
